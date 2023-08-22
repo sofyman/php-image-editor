@@ -316,9 +316,9 @@ class Image
         \curl_setopt($curl, CURLOPT_URL, $url);
 
         $opts = $defaultCurlOptions + $curlOptions;
-        if (array_key_exists($curlOptions, CURLOPT_USERAGENT)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_USERAGENT];
-        if (array_key_exists($curlOptions, CURLOPT_RETURNTRANSFER)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_RETURNTRANSFER];        
-        if (array_key_exists($curlOptions, CURLOPT_TIMEOUT)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_TIMEOUT];
+        if (array_key_exists(CURLOPT_USERAGENT, $curlOptions)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_USERAGENT];
+        if (array_key_exists(CURLOPT_RETURNTRANSFER, $curlOptions)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_RETURNTRANSFER];        
+        if (array_key_exists(CURLOPT_TIMEOUT, $curlOptions)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_TIMEOUT];
         
         \curl_setopt_array($curl, $opts);
 
