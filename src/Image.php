@@ -314,7 +314,13 @@ class Image
 
         $curl = \curl_init();
         \curl_setopt($curl, CURLOPT_URL, $url);
-        \curl_setopt_array($curl, $defaultCurlOptions + $curlOptions);
+
+        $opts = $defaultCurlOptions + $curlOptions;
+        if (array_key_exists($curlOptions, CURLOPT_USERAGENT)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_USERAGENT];
+        if (array_key_exists($curlOptions, CURLOPT_RETURNTRANSFER)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_RETURNTRANSFER];        
+        if (array_key_exists($curlOptions, CURLOPT_TIMEOUT)) $opts[CURLOPT_USERAGENT] = $curlOptions[CURLOPT_TIMEOUT];
+        
+        \curl_setopt_array($curl, $opts);
 
         $image = \curl_exec($curl);
 
